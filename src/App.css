@@ -205,7 +205,7 @@ body::before {
 .todo-item.done .todo-text {
   color: var(--done);
   text-decoration: line-through;
-  text-decoration-color: var(--done);
+  text-decoration-color: var(--muted);
 }
 
 /* Bouton supprimer */
