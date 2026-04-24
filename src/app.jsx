@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./App.css";
 
 export function App() {
+  const navigate = useNavigate();
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
 
@@ -17,6 +19,13 @@ export function App() {
   const deleteTodo = (id) => setTodos(todos.filter((t) => t.id !== id));
 
   return (
+    <>
+    <div className="nav">
+        <button className="home-btn" onClick={() => navigate("/")}>
+          Acceuil
+        </button>
+      </div>
+
     <div className="app">
       <header className="app-header">
         <h1>
@@ -59,6 +68,9 @@ export function App() {
           ))}
         </ul>
       )}
+      
     </div>
+    </>
   );
+
 }

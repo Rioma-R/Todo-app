@@ -1,0 +1,61 @@
+/* Home.css */
+.home {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  animation: fadeUp 0.5s ease both;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.home-header h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 2.6rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.home-header h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.home-subtitle {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.home-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.home-card p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.home-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.6rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.home-btn:hover  { background: #b5572c; }
+.home-btn:active { transform: scale(0.96); }
