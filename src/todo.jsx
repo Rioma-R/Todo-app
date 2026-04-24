@@ -4,21 +4,33 @@ import { Navigation } from "./navigation";
 import "./CSS/Todo.css";
 
 export function Todo() {
-  const navigate = useNavigate();
-  const [todos, setTodos] = useState([]);
-  const [input, setInput] = useState("");
 
+  const navigate = useNavigate();
+  const [todos, setTodos] = useState(() => {
+    const saved = localStorage.getItem("todos");
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [input, setInput] = useState("");
+  
   const addTodo = () => {
     if (!input.trim()) return;
-    setTodos([...todos, { id: Date.now(), text: input.trim(), done: false }]);
+    const newTodos = [...todos, { id: Date.now(), text: input.trim(), done: false }];
+    setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
     setInput("");
   };
 
-  const toggleTodo = (id) =>
-    setTodos(todos.map((t) => (t.id === id ? { ...t, done: !t.done } : t)));
+  const toggleTodo = (id) => {
+    const newTodos = todos.map((t) => (t.id === id ? { ...t, done: !t.done } : t));
+    setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
+  };
 
-  const deleteTodo = (id) => setTodos(todos.filter((t) => t.id !== id));
-
+  const deleteTodo = (id) => {
+    const newTodos = todos.filter((t) => t.id !== id);
+    setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
+  };
   return (
     <>
       <div className="navigationBar">
