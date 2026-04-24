@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navigation } from "./navigation";
-import "./todo.css";
+import "./CSS/Todo.css";
 
 export function Todo() {
   const navigate = useNavigate();
