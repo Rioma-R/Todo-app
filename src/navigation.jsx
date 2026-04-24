@@ -10,6 +10,9 @@ export function Navigation() {
       <NavLink to="/todo" className={({ isActive }) => isActive ? "nav-btn active" : "nav-btn"}>
         TodoList
       </NavLink>
+      <NavLink to="/stats" className={({ isActive }) => isActive ? "nav-btn active" : "nav-btn"}>
+        Statistiques
+      </NavLink>
     </nav>
   );
 }
