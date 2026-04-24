@@ -1,5 +1,5 @@
 import { Navigation } from "./navigation";
-import "./CSS/Stats.css";
+import "./css/Stats.css";
 
 export function Stats() {
     const todos = JSON.parse(localStorage.getItem("todos") || "[]");
