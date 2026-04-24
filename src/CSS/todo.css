@@ -16,7 +16,7 @@
   --border: #e2d9cc;
   --done: #b8ad9e;
   --radius: 14px;
-  --delete:red;
+  --delete: red;
 }
 
 body {
@@ -28,11 +28,17 @@ body {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  padding-top: 64px; 
-
+  padding-top: 64px;
 }
 
-/* Fond texturé subtil */
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+    padding-top: 64px;
+    align-items: flex-start;
+  }
+}
+
 body::before {
   content: '';
   position: fixed;
@@ -55,7 +61,6 @@ body::before {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Header */
 .app-header {
   margin-bottom: 2rem;
 }
@@ -67,6 +72,12 @@ body::before {
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--text);
+}
+
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 2rem;
+  }
 }
 
 .app-header h1 em {
@@ -81,7 +92,6 @@ body::before {
   letter-spacing: 0.04em;
 }
 
-/* Formulaire */
 .todo-form {
   display: flex;
   gap: 8px;
@@ -106,6 +116,7 @@ body::before {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.95rem;
   color: var(--text);
+  min-width: 0;
 }
 
 .todo-form input::placeholder {
@@ -124,12 +135,12 @@ body::before {
   cursor: pointer;
   transition: background 0.2s, transform 0.15s;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .todo-form button:hover  { background: #b5572c; }
 .todo-form button:active { transform: scale(0.96); }
 
-/* Liste */
 .todo-list {
   list-style: none;
   display: flex;
@@ -164,7 +175,6 @@ body::before {
   border-color: var(--border);
 }
 
-/* Checkbox custom */
 .todo-item input[type="checkbox"] {
   appearance: none;
   width: 20px;
@@ -195,13 +205,13 @@ body::before {
   transform: rotate(45deg);
 }
 
-/* Texte de la tâche */
 .todo-text {
   flex: 1;
   font-size: 0.95rem;
   line-height: 1.4;
   color: var(--text);
   transition: color 0.2s;
+  word-break: break-word;
 }
 
 .todo-item.done .todo-text {
@@ -210,7 +220,6 @@ body::before {
   text-decoration-color: var(--muted);
 }
 
-/* Bouton supprimer */
 .delete-btn {
   background: none;
   border: none;
@@ -222,7 +231,6 @@ body::before {
   border-radius: 6px;
   transition: color 0.2s, background 0.2s;
   flex-shrink: 0;
-
 }
 
 .delete-btn:hover {
@@ -230,7 +238,6 @@ body::before {
   background: var(--accent-light);
 }
 
-/* Empty state */
 .empty-state {
   text-align: center;
   padding: 3rem 0;
